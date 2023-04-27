@@ -19,26 +19,27 @@ def extract_words_tokens(any_string):
 
 def lemmatize(any_string, file_name):
     #here comes your code
-    dictionary = {}
-    
+    #create a dictionary list
+    dictionary = {} 
+    #read txt file and save each word to dictionary including the word it self, exp: test:test,...
     with open(file_name, 'r') as file:
         for line in file:
-            word = line.split()
-            dictionary.update({word[1]:word[0]})  # strip the newline character from each line 
+            word = line.split() # split each line with space
+            dictionary.update({word[1]:word[0]})  # save to dict
             dictionary.update({word[0]:word[0]})
     
+    # split the string 
     resList = any_string.split()
+    #create a list for lemmatized words
     dictionary_of_lemmatized_words = {}
     for x in resList:
         dictionary_of_lemmatized_words.update({x:dictionary[x]})    
     
-    
     print(dictionary["tests"])
-    print(dictionary_of_lemmatized_words)
     #return(print(dictionary_of_lemmatized_words))
-
+    print(dictionary_of_lemmatized_words)
 
 if __name__ == "__main__":
    # extract_words_tokens("this is a example string")
-   # 
-   lemmatize("this is a test","D:\\Informatik_Uni_Marburg\\Natural Language Processing\\Excercises\\Session01\\lemmatization-en.txt")
+   # "D:\\Informatik_Uni_Marburg\\Natural Language Processing\\Excercises\\Session01\\lemmatization-en.txt"
+   lemmatize("this is a test","lemmatization-en.txt")
