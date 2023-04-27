@@ -19,38 +19,26 @@ def extract_words_tokens(any_string):
 
 def lemmatize(any_string, file_name):
     #here comes your code
-    dictionary = {"word":"lemma"}
+    dictionary = {}
+    
     with open(file_name, 'r') as file:
         for line in file:
             word = line.split()
-            dictionary.update({word[0]:word[1]})  # strip the newline character from each line
-    print(dictionary)        
+            dictionary.update({word[1]:word[0]})  # strip the newline character from each line 
+            dictionary.update({word[0]:word[0]})
     
-    #split the any_string
-    tonken = any_string.split()
-    print(dictionary[tonken[0]])
-    
-    """
-    dictionary_of_lemmatized_words = {" ":" "}
-    for x in tonken:
-        dictionary_of_lemmatized_words.update({x,dictionary[x]})
-
-    """
-    #print(dictionary[any_string])    
+    resList = any_string.split()
+    dictionary_of_lemmatized_words = {}
+    for x in resList:
+        dictionary_of_lemmatized_words.update({x:dictionary[x]})    
     
     
-    
-            
-    """"   
-    if word[0] == any_string:
-                print(word[1])
-                dictionary_of_lemmatized_words = {word[1],word[0]}
-                """
-
-    
+    print(dictionary["tests"])
+    print(dictionary_of_lemmatized_words)
     #return(print(dictionary_of_lemmatized_words))
 
 
 if __name__ == "__main__":
-   #extract_words_tokens("this is a example string")
-   lemmatize("10 and","/Users/tommy/Documents/Informatik_Uni_Marburg/Natural_Language_Processing/Excercises/Session01/lemmatization-en.txt")
+   # extract_words_tokens("this is a example string")
+   # 
+   lemmatize("this is a test","D:\\Informatik_Uni_Marburg\\Natural Language Processing\\Excercises\\Session01\\lemmatization-en.txt")
