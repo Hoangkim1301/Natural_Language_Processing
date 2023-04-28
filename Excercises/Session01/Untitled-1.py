@@ -42,4 +42,4 @@ def lemmatize(any_string, file_name):
 if __name__ == "__main__":
    # extract_words_tokens("this is a example string")
    # "D:\\Informatik_Uni_Marburg\\Natural Language Processing\\Excercises\\Session01\\lemmatization-en.txt"
-   lemmatize("this is a test","lemmatization-en.txt")
+   lemmatize("this is a testing","lemmatization-en.txt")
