@@ -37,9 +37,11 @@ def lemmatize(any_string, file_name):
     
     print(dictionary["tests"])
     print(dictionary_of_lemmatized_words)
-    return(print(dictionary_of_lemmatized_words))
+    #return(print(dictionary_of_lemmatized_words))
 
 if __name__ == "__main__":
    # extract_words_tokens("this is a example string")
    # "D:\\Informatik_Uni_Marburg\\Natural Language Processing\\Excercises\\Session01\\lemmatization-en.txt"
    lemmatize("this is a testing","lemmatization-en.txt")
+
+
