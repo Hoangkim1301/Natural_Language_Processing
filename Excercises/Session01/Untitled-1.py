@@ -36,8 +36,8 @@ def lemmatize(any_string, file_name):
         dictionary_of_lemmatized_words.update({x:dictionary[x]})    
     
     print(dictionary["tests"])
-    #return(print(dictionary_of_lemmatized_words))
     print(dictionary_of_lemmatized_words)
+    return(print(dictionary_of_lemmatized_words))
 
 if __name__ == "__main__":
    # extract_words_tokens("this is a example string")
