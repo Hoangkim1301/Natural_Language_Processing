@@ -83,7 +83,7 @@ def stemmer(any_string):
 
 if __name__ == "__main__":
    print('Task 1.1')
-   extract_words_tokens("this is a example string")
+   extract_words_tokens("this is an example string")
    print()
    print('Task 1.2')
    lemmatize("this is a testing for Tommy","lemmatization-en.txt")
