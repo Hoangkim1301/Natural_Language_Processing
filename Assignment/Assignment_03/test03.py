@@ -1,39 +1,26 @@
-import spacy
-from collections import Counter
 import string
-
-
+from collections import Counter
+import spacy
 def find_top_five(my_file_name):
-    # Load the English language model in spaCy
+    top_five_tokens = {}
+    # load english language model
     nlp = spacy.load('en_core_web_sm')
+    with open(my_file_name,'r') as file:
 
-    # Read the contents of the file
-    with open(my_file_name, 'r') as file:
-        text = file.read()
+        # convert all characters to lower case and ignore all the punctuation
+        text = file.read().lower().translate(str.maketrans('','',string.punctuation))
 
-    # Convert the text to lowercase
-    text = text.lower()
+        # process the text using Spacy language model
+        doc = nlp(text)
 
-    # Remove punctuation from the text
-    text = text.translate(str.maketrans('', '', string.punctuation))
+        # count the tokens
+        token_counts = Counter(token.text for token in doc if token.text.isalnum())
 
-    # Tokenize the text using spaCy
-    doc = nlp(text)
+    top_five_tokens = token_counts.most_common(5)
 
-    # Filter out stopwords and non-alphabetic tokens
-    tokens = [token.text for token in doc if not token.is_stop and token.is_alpha]
+    return(print(top_five_tokens))
 
-    # Count the frequency of each token
-    token_counts = Counter(tokens)
-
-    # Get the top five most frequent tokens
-    top_five = token_counts.most_common(5)
-
-    # Convert the top five results to a dictionary
-    top_five_dict = dict(top_five)
-
-    return top_five_dict
 
 
 if __name__ == "__main__":
-    find_top_five('corpus.txt')
+    find_top_five('Assignment\Assignment_03\corpus.txt')

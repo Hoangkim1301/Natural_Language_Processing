@@ -1,0 +1,1 @@
+When users google a word or query, their system internally runs a pipeline in order to process what the person is querying
